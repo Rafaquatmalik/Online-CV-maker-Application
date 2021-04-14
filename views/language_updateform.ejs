@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+<style>
+    table,th,tr,td {
+        border-collapse: collapse;
+        border: 1px solid #d3d3d3;
+    }
+</style>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                
+                <form action="/language/<%=language.languageid %>/update" method="POST" >
+                    <table class='table table-striped table-responsive-md btm-table'>
+                        <tr>
+                            <th>Language ID : </th>
+                            <td><input type="number" name='languageid' placeholder='language id' readonly value='<%=language.languageid %>'></td>
+                        </tr>
+                        <tr>
+                            <th>Language Details : </th>
+                           <td><input type="text" name="languagedetails" placeholder="language details" required value='<%=language.languagedetails %>'></td>
+                        </tr>
+                        <tr>
+                            <th>Profile ID : </th>
+                            <td><input type="number" name='profileid' placeholder="profile id" required value='<%=language.profileid%>'></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Modify Language" ></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+</html>

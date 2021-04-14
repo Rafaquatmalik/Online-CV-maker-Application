@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+<style>
+     table,th,tr,td{
+		  border-collapse: collapse;
+		  border: 1px solid #d3d3d3;
+	  }
+</style>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row" >
+             
+                <form action="create" method="POST" >
+                    <table class='table table-striped table-responsive-md btm-table'>
+                        <tr>
+                            <th>Activity ID : </th>
+                            <td><input type="number" name="activityid" placeholder="extra curricular activity id" required></td>
+                        </tr>
+                        <tr>
+                            <th>Activity Name</th> : </th>
+                            <td><input type="text" name="activityname" placeholder="activity name" required></td>
+                        </tr>
+                        <tr>
+                            <th>Profile ID : </th>
+                            <td><input type="number" name="profileid" placeholder="profile id"   required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="SAVE" ></td>
+                        </tr>
+                    </table>
+                </form>
+
+
+
+            </div>
+        </div>
+
+</body>
+<% include partials/script %>
+
+</html>

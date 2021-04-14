@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Extra Currucular Activity ID</th>
+                            <th>Activity Name</th>
+                            <th>Profile ID</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% activities.forEach(function(activity){ %>
+                            <tr>
+                                <td>
+                                    <%=activity.activityid %>
+                                </td>
+                                <td>
+                                    <%=activity.activityname %>
+                                </td>
+                                <td>
+                                    <%=activity.profileid %>
+                                </td>
+                               <td>
+                                    <form action='/activity/updateform/<%=activity.activityid %>' method="POST">
+                                        <button type="submit">Modify</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action='/activity/<%=activity._id %>/delete ' method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <form action='/activity/createform' method="POST">
+                    <button type="submit">Add Extra Curricular Activity</button>
+               </form>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>

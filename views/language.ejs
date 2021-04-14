@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Language ID</th>
+                            <th>Language Details</th>
+                            <th>ProfileID</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% languages.forEach(function(language){ %>
+                            <tr>
+                                <td>
+                                    <%=language.languageid %>
+                                </td>
+                                <td>
+                                    <%=language.languagedetails %>
+                                </td>
+                                <td>
+                                    <%=language.profileid %>
+                                </td>
+                               <td>
+                                    <form action='/language/updateform/<%=language.languageid %>' method="POST">
+                                        <button type="submit">Modify</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action='/language/<%=language._id %>/delete ' method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <form action='/language/createform' method="POST">
+                    <button type="submit">Add Language</button>
+               </form>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>

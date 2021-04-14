@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>PROFILE ID</th>
+                            <th>Name</th>
+                            <th>EMAIL</th>
+                            <th>MOBILE NO</th>
+                            <th>ADDRESS</th>
+                            <th>&nbsp;</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% profiles.forEach(function(profile){ %>
+                            <tr>
+                                <td>
+                                    <%=profile.profileid%>
+                                </td>
+                                <td>
+                                    <%=profile.name %>
+                                </td>
+                                <td>
+                                    <%=profile.email %>
+                                </td>
+                                <td>
+                                    <%=profile.mobileno %>
+                                </td>
+                                <td>
+                                    <%=profile.address %>
+                                </td>
+                                <td>
+                                    <form action='updateform/<%=profile.profileid %>' method="POST">
+                                        <button type="submit">Modify Profile</button>
+                                    </form>
+                                </td>
+
+
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>

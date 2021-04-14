@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+<style>
+     table,th,tr,td{
+		  border-collapse: collapse;
+		  border: 1px solid #d3d3d3;
+	  }
+</style>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row" >
+             
+                <form action="create" method="POST" >
+                    <table class='table table-striped table-responsive-md btm-table'>
+                        <tr>
+                            <th>Reference ID : </th>
+                            <td><input type="number" name="referenceid" placeholder="referenceid" required></td>
+                        </tr>
+                        <tr>
+                            <th>Name : </th>
+                            <td><input type="text" name="name" placeholder="name" required></td>
+                        </tr>
+                        <tr>
+                            <th>Designation : </th>
+                            <td><input type="text" name="designation" placeholder="designation" required></td>
+                        </tr>
+                        <tr>
+                            <th>Company : </th>
+                            <td><input type="text" name="company" placeholder="company" required></td>
+                        </tr>
+                        <tr>
+                            <th>Contact No : </th>
+                            <td><input type="number" name="contactno" placeholder="Contact no" required></td>
+                        </tr>
+                        <tr>
+                            <th>Profile ID : </th>
+                            <td><input type="number" name="profileid" placeholder="Profile id" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="SAVE" ></td>
+                        </tr>
+                    </table>
+                </form>
+
+
+
+            </div>
+        </div>
+
+</body>
+<% include partials/script %>
+
+</html>

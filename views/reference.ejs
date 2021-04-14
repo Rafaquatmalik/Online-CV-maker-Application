@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Reference ID</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Company</th>
+                            <th>Contact No</th>
+                            <th>Profile ID</th>
+                            <th>&nbsp;</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% references.forEach(function(reference){ %>
+                            <tr>
+                                <td>
+                                    <%=reference.referenceid %>
+                                </td>
+                                <td>
+                                    <%=reference.name %>
+                                </td>
+                                <td>
+                                    <%=reference.designation %>
+                                </td>
+                                <td>
+                                    <%=reference.company %>
+                                </td>
+                                <td>
+                                    <%=reference.contactno %>
+                                </td>
+                                <td>
+                                    <%=reference.profileid %>
+                                </td>
+                                <td>
+                                    <form action='/reference/updateform/<%=reference.referenceid %>' method="POST">
+                                        <button type="submit">Modify reference</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action='/reference/<%=reference._id %>/delete ' method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <form action='/reference/createform' method="POST">
+                    <button type="submit">Add Reference</button>
+               </form>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>

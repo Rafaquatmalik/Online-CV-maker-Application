@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Research Experience ID</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Research Field</th>
+                            <th>Profile ID</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rexperiences.forEach(function(rexperience){ %>
+                            <tr>
+                                <td>
+                                    <%=rexperience.rexperienceid%>
+                                </td>
+                                <td>
+                                    <%=rexperience.projectname %>
+                                </td>
+                                <td>
+                                    <%=rexperience.start_date %>
+                                </td>
+                                <td>
+                                    <%=rexperience.end_date %>
+                                </td>
+                                <td>
+                                    <%=rexperience.researchfield %>
+                                </td>
+                                <td>
+                                    <%=rexperience.profileid %>
+                                </td>
+                                <td>
+                                    <form action='/research/updateform/<%=rexperience.rexperienceid %>' method="POST">
+                                        <button type="submit">Modify</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action='/research/<%=rexperience._id %>/delete ' method="POST">
+                                            <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <form action='/research/createform' method="POST">
+                    <button type="submit">Add Research Experience</button>
+               </form>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>

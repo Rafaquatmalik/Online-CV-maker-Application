@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="container-fluid bg-3 text-center">
+            <h3>
+                <%= page %>
+            </h3><br>
+           
+            <div class="row">
+                <table class='table table-striped table-responsive-md btm-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Work EXPERIENCE ID</th>
+                            <th>COMPANY</th>
+                            <th>Designation</th>
+                            <th>START DATE</th>
+                            <th>END DATE</th>
+                            <th>RESPONSIBILITIES</th>
+                            <th>PROFILE ID</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% wexperiences.forEach(function(wexperience){ %>
+                            <tr>
+                                <td>
+                                    <%=wexperience.wexperienceid %>
+                                </td>
+                                <td>
+                                    <%=wexperience.companyname %>
+                                </td>
+                                <td>
+                                    <%=wexperience.designation %>
+                                </td>
+                                <td>
+                                    <%=wexperience.start_date %>
+                                </td>
+                                <td>
+                                    <%=wexperience.end_date %>
+                                </td>
+                                <td>
+                                    <%=wexperience.responsibilities %>
+                                </td>
+                                <td>
+                                    <%=wexperience.profileid %>
+                                </td>
+                                <td>
+                                    <form action='work/updateform/<%=wexperience.wexperienceid %>' method="POST">
+                                        <button type="submit">Modify</button>
+                                    </form>
+                                </td>
+                                <td>
+                                <form action='/work/<%=wexperience._id %>/delete ' method="POST">
+                                        <button type="submit">Delete</button>
+                                </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <form action='/work/createform' method="POST">
+                    <button type="submit">Add Work Experience</button>
+               </form>
+
+            </div>
+        </div>
+</body>
+<% include partials/script %>
+
+</html>
